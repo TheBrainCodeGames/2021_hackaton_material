@@ -18,6 +18,12 @@ load_data (path, verbose=False)
 load_ripples_tags (path, fs, verbose=False)
 	Loads ripples start and end times (in seconds) for a session.
 
+get_ripples_tags_as_signal (data, ripples, fs)
+	Generates a pulse signal representing all the ripples tagged or predicted in a session.
+
+get_score (true_ripples, pred_ripples, threshold=0.1)
+	Calculates the precision, recall and F1 metrics for some detected events over the ground truth.
+
 write_results (save_path, session_name, group_number, predictions)
 	Saves the predicted ripples into a CSV file.
 """
