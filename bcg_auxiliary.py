@@ -12,10 +12,10 @@ the results from BrainCodeGames 2021 hackaton.
 
 Methods
 -------
-load_data (path, verbose=False)
+load_data (path)
 	Loads LFP data for a session
 
-load_ripples_tags (path, fs, verbose=False)
+load_ripples_tags (path, fs)
 	Loads ripples start and end times (in seconds) for a session.
 
 get_ripples_tags_as_signal (data, ripples, fs)

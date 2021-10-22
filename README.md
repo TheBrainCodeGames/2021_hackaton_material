@@ -1,8 +1,8 @@
 ## Código auxiliar para la hackatón BrainCodeGames 2021
 
 El fichero **bcg_auxiliary.py** contiene la implementación de los siguientes métodos:
-- `load_data (path, verbose=False)`: Carga las señales del LFP de una sesión.
-- `load_ripples_tags (path, fs, verbose=False)`: carga las etiquetas (principio y fin) de los ripples de una sesión.
+- `load_data (path)`: Carga las señales del LFP de una sesión.
+- `load_ripples_tags (path, fs)`: carga las etiquetas (principio y fin) de los ripples de una sesión.
 - `get_ripples_tags_as_signal (data, ripples, fs)`: genera una señal cuadrada que representa donde hay o no hay ripples a lo largo de una sesión.
 - `get_score (true_ripples, pred_ripples, threshold=0.1)`: calcula las métrical de *precision*, *recall* y *F1* para unas detecciones respecto a las etiquetas de los ripples de una sesión.
 - `write_results (save_path, session_name, group_number, predictions)`: guarda las detecciones realizadas en una sesión en un fichero de texto.
