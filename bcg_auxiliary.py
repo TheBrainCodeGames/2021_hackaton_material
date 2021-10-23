@@ -256,6 +256,8 @@ def get_score (true_ripples, pred_ripples, threshold=0.1):
 	false_positives = 0
 	false_negatives = np.shape(true_ripples)[0]
 
+	true_events_found = np.zeros(np.shape(true_ripples)[0])
+
 	for i_event in range(np.shape(pred_ripples)[0]):
 		# Calculate IoU of the pred event with all true events
 		ious = __iou(pred_ripples[i_event, :], true_ripples)
@@ -269,8 +271,10 @@ def get_score (true_ripples, pred_ripples, threshold=0.1):
 		best_iou_index = np.argmax(ious)
 		if ious[best_iou_index] >= threshold:
 			# If IoU >= threshold, it is a true positive. Remove from true events to find
-			false_negatives -= 1
-			true_positives += 1
+			if true_events_found[best_iou_index] == 0:
+				true_events_found[best_iou_index] = 1
+				false_negatives -= 1
+				true_positives += 1
 
 		else:
 			# If not, it is a false positive
